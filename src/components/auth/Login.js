@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
+import Input from "../Input";
+import SecondaryButton from "../buttons/SecondaryButton";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -11,7 +13,6 @@ function Login() {
   const navigate = useNavigate();
   async function login(e) {
     e.preventDefault();
-
     try {
       const loginData = {
         email,
@@ -26,39 +27,36 @@ function Login() {
   }
 
   return (
-    <div className=" mx-auto mt-5">
-      {/* <MDBCard className="shadow-sm">
-        <MDBCardBody>
-          <MDBCardTitle>Log in to your account </MDBCardTitle>
+    <div className="mx-auto my-5">
+      <div className="min-h-[calc(100vh-100px)] flex flex-col items-center pt-6 sm:pt-0 ">
+        <div className="w-full sm:max-w-md mt-6 px-6 py-4 text-base shadow-md overflow-hidden sm:rounded-lg">
           <form onSubmit={login} className="mt-3">
-            <MDBInput
+            <Input
               value={email}
-              name="email"
-              onChange={(e) => setEmail(e.target.value)}
               type="email"
-              id="validationCustom01"
-              required
+              name="femail"
+              placeholder="email"
               label="Email"
+              onChange={(e) => setEmail(e.target.value)}
+              required
               className="mb-3"
             />
-            <MDBInput
+            <Input
               value={password}
-              name="password"
-              onChange={(e) => setPassword(e.target.value)}
-              id="validationCustom02"
-              required
               type="password"
+              name="password"
+              placeholder="password"
               label="Password"
+              onChange={(e) => setPassword(e.target.value)}
+              required
               className="mb-3"
             />
             <div className="mt-3">
-              <MDBBtn color="dark" className="me-2 shadow-sm" type="submit">
-                Login
-              </MDBBtn>
+              <SecondaryButton type="submit">Login</SecondaryButton>
             </div>
           </form>
-        </MDBCardBody>
-      </MDBCard> */}
+        </div>
+      </div>
     </div>
   );
 }

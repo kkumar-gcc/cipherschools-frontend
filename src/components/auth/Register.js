@@ -42,7 +42,6 @@ function Register() {
     <div className="mx-auto my-5">
       <div className="min-h-[calc(100vh-100px)] flex flex-col items-center pt-6 sm:pt-0 ">
         <div className="w-full sm:max-w-md mt-6 px-6 py-4 text-base shadow-md overflow-hidden sm:rounded-lg">
-          {/* <MDBCardTitle>Register a new account</MDBCardTitle> */}
           <form onSubmit={register} className="mt-3">
             <Input
               value={firstName}
