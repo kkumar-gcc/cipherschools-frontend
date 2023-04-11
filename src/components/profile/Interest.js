@@ -8,7 +8,7 @@ function Interest() {
         <div className="flex flex-row ">
           <div className="flex-1">
             <h3 className="py-3 text-2xl font-semibold text-gray-700 dark:text-white">
-              <a href="/blogs">Password & Security</a>
+              <a href="/blogs">Interests</a>
             </h3>
           </div>
           <div>
