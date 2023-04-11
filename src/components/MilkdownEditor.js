@@ -50,15 +50,16 @@ const hasMark = (state, type) => {
   return state.doc.rangeHasMark(from, to, type);
 };
 
-const MilkdownEditor = () => {
+const MilkdownEditor = (props) => {
   const { editor } = useEditor((root) =>
     Editor.make() // <- i was thinking to use this but now i am not  using this for now
       .use(nord)
       .config((ctx) => {
         ctx.set(rootCtx, root);
-        ctx.set(defaultValueCtx, markdown);
+        ctx.set(defaultValueCtx, props.aboutMe);
         ctx.get(listenerCtx).markdownUpdated((ctx, markdown, prevMarkdown) => {
           // @this.set(model, markdown);
+          props.onMarkdownChange(markdown);
           console.log(markdown);
         });
       })
