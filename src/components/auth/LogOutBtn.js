@@ -1,8 +1,8 @@
 import axios from "axios";
-import { MDBBtn } from "mdb-react-ui-kit";
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
+import PrimaryButton from "../buttons/PrimaryButton";
 
 function LogOutBtn() {
   const { getLoggedIn } = useContext(AuthContext);
@@ -15,11 +15,10 @@ function LogOutBtn() {
     await getLoggedIn();
     navigate("/login");
   }
-
   return (
-    <MDBBtn onClick={logOut} outline color="dark" className="me-2" type="button" >
+    <PrimaryButton  onClick={logOut} type="button">
       Logout
-    </MDBBtn>
+    </PrimaryButton>
   );
 }
 

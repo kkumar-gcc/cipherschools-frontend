@@ -2,17 +2,18 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
-import Contacts from "./components/contacts/Contacts";
 import Navbar from "./components/layout/Navbar";
 import NotFound from "./NotFound";
 import PublicRoute from "./PublicRoute";
 import RequireAuth from "./RequireAuth";
+import Profile from "./components/profile/Profile";
 
 function Router() {
   return (
+    <div className="theme-rose">
     <BrowserRouter>
       <Navbar />
-      <div className="m-2 m-x-4">
+      <main className="flex-1 w-full mt-2 text-gray-700  sm:mt-6 md:mt-8  max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Routes>
           <Route
             path="/login"
@@ -34,15 +35,16 @@ function Router() {
             path="/"
             element={
               <RequireAuth>
-                <Contacts />
+                <Profile />
               </RequireAuth>
             }
           />
-          <Route path='/404' element={<NotFound/>} />
-          <Route path='*' exact={true} element={<NotFound/>} />
+          <Route path="/404" element={<NotFound />} />
+          <Route path="*" exact={true} element={<NotFound />} />
         </Routes>
-      </div>
+      </main>
     </BrowserRouter>
+    </div>
   );
 }
 

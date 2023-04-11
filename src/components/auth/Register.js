@@ -1,17 +1,14 @@
 import axios from "axios";
-import {
-  MDBBtn,
-  MDBCard,
-  MDBCardBody,
-  MDBCardTitle,
-  MDBInput,
-} from "mdb-react-ui-kit";
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
+import Input from "../Input";
+import SecondaryButton from "../buttons/SecondaryButton";
 
 function Register() {
   const [email, setEmail] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const [passwordVerify, setPasswordVerify] = useState("");
 
@@ -23,13 +20,17 @@ function Register() {
 
     try {
       const registerData = {
+        firstName,
+        lastName,
         email,
         password,
         passwordVerify,
       };
-
       // await axios.post("http://localhost:5000/auth/", registerData);
-      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/register`, registerData);
+      await axios.post(
+        `${process.env.REACT_APP_BACKEND_URL}/register`,
+        registerData
+      );
       await getLoggedIn();
       navigate("/");
     } catch (err) {
@@ -38,48 +39,68 @@ function Register() {
   }
 
   return (
-    <div className="mx-auto mt-5">
-      <MDBCard className="shadow-sm">
-        <MDBCardBody>
-          <MDBCardTitle>Register a new account</MDBCardTitle>
+    <div className="mx-auto my-5">
+      <div className="min-h-[calc(100vh-100px)] flex flex-col items-center pt-6 sm:pt-0 ">
+        <div className="w-full sm:max-w-md mt-6 px-6 py-4 text-base shadow-md overflow-hidden sm:rounded-lg">
+          {/* <MDBCardTitle>Register a new account</MDBCardTitle> */}
           <form onSubmit={register} className="mt-3">
-            <MDBInput
+            <Input
+              value={firstName}
+              type="text"
+              name="firstName"
+              placeholder="First name"
+              label="First name"
+              id="name-input"
+              onChange={(e) => setFirstName(e.target.value)}
+              required
+              className="mb-3"
+            />
+            <Input
+              value={lastName}
+              type="text"
+              name="lastName"
+              placeholder="Last Name"
+              label="Last name"
+              onChange={(e) => setLastName(e.target.value)}
+              required
+              className="mb-3"
+            />
+            <Input
               value={email}
-              name="email"
-              onChange={(e) => setEmail(e.target.value)}
               type="email"
-              id="validationCustom01"
-              required
+              name="femail"
+              placeholder="email"
               label="Email"
+              onChange={(e) => setEmail(e.target.value)}
+              required
               className="mb-3"
             />
-            <MDBInput
+            <Input
               value={password}
-              name="password"
-              onChange={(e) => setPassword(e.target.value)}
-              id="validationCustom02"
-              required
               type="password"
+              name="password"
+              placeholder="password"
               label="Password"
+              onChange={(e) => setPassword(e.target.value)}
+              required
               className="mb-3"
             />
-            <MDBInput
-              name="passwordVerify"
-              onChange={(e) => setPasswordVerify(e.target.value)}
+            <Input
               value={passwordVerify}
-              id="validationCustom02"
-              required
               type="password"
+              name="passwordVerify"
+              placeholder="password"
               label="Verify password"
+              onChange={(e) => setPasswordVerify(e.target.value)}
+              required
+              className="mb-3"
             />
             <div className="mt-3">
-              <MDBBtn color="dark" className="me-2 shadow-sm" type="submit">
-                Register
-              </MDBBtn>
+              <SecondaryButton type="submit">Register</SecondaryButton>
             </div>
           </form>
-        </MDBCardBody>
-      </MDBCard>
+        </div>
+      </div>
     </div>
   );
 }

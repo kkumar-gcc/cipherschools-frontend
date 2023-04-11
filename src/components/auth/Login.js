@@ -1,11 +1,4 @@
 import axios from "axios";
-import {
-  MDBBtn,
-  MDBCard,
-  MDBCardBody,
-  MDBCardTitle,
-  MDBInput,
-} from "mdb-react-ui-kit";
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
@@ -34,7 +27,7 @@ function Login() {
 
   return (
     <div className=" mx-auto mt-5">
-      <MDBCard className="shadow-sm">
+      {/* <MDBCard className="shadow-sm">
         <MDBCardBody>
           <MDBCardTitle>Log in to your account </MDBCardTitle>
           <form onSubmit={login} className="mt-3">
@@ -65,7 +58,7 @@ function Login() {
             </div>
           </form>
         </MDBCardBody>
-      </MDBCard>
+      </MDBCard> */}
     </div>
   );
 }
