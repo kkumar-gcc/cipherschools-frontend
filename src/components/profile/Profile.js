@@ -36,7 +36,7 @@ function Profile() {
       <Social user={user} getUser={getUser} />
       <ProfessionalInfo user={user} getUser={getUser} />
       <PasswordReset getUser={getUser}/>
-      <Interest />
+      <Interest user={user} getUser={getUser}/>
       {/* <ContactForm getContacts={getContacts} />
       <ContactList contacts={contacts} getContacts={getContacts} /> */}
     </div>
