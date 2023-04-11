@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
 import Input from "../Input";
 import SecondaryButton from "../buttons/SecondaryButton";
+import { toast } from "react-toastify";
 
 function Register() {
   const [email, setEmail] = useState("");
@@ -34,7 +35,9 @@ function Register() {
       await getLoggedIn();
       navigate("/");
     } catch (err) {
-      console.error(err);
+      toast.error(err.response.data.errorMessage, {
+        position: toast.POSITION.TOP_LEFT,
+      });
     }
   }
 

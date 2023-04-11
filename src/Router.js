@@ -12,7 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 function Router() {
   return (
-    <div className="theme-rose">
+    <div>
       <ToastContainer />
       <BrowserRouter>
         <Navbar />

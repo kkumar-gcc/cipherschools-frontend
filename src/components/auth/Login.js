@@ -25,7 +25,6 @@ function Login() {
       toast.error(err.response.data.errorMessage, {
         position: toast.POSITION.TOP_LEFT,
       });
-      console.error(err.response.data.errorMessage);
     }
   }
 

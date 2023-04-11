@@ -8,7 +8,7 @@ axios.defaults.withCredentials = true;
 function App() {
   return (
     <AuthContextProvider>
-      <div className="font-sans antialiased bg-skin-base 2xl:shadow-lg 2xl:border-x theme-rose min-h-screen flex flex-col">
+      <div className="font-sans antialiased bg-skin-base 2xl:shadow-lg 2xl:border-x theme-orange min-h-screen flex flex-col">
         <Router />
       </div>
     </AuthContextProvider>
