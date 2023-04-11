@@ -9,6 +9,7 @@ import RequireAuth from "./RequireAuth";
 import Profile from "./components/profile/Profile";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Follower from "./components/profile/Follower";
 
 function Router() {
   return (
@@ -39,6 +40,14 @@ function Router() {
               element={
                 <RequireAuth>
                   <Profile />
+                </RequireAuth>
+              }
+            />
+             <Route
+              path="/followers"
+              element={
+                <RequireAuth>
+                  <Follower />
                 </RequireAuth>
               }
             />
