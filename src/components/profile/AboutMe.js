@@ -1,4 +1,3 @@
-import { MilkdownProvider } from "@milkdown/react";
 import MilkdownEditor from "../MilkdownEditor";
 import SecondaryButton from "../buttons/SecondaryButton";
 import { Link } from "react-router-dom";
@@ -22,9 +21,7 @@ function AboutMe(props) {
             </Link>
           </div>
         </div>
-        <MilkdownProvider>
           <MilkdownEditor />
-        </MilkdownProvider>
       </div>
     </>
   );

@@ -37,8 +37,6 @@ function Profile() {
       <ProfessionalInfo user={user} getUser={getUser} />
       <PasswordReset getUser={getUser}/>
       <Interest user={user} getUser={getUser}/>
-      {/* <ContactForm getContacts={getContacts} />
-      <ContactList contacts={contacts} getContacts={getContacts} /> */}
     </div>
   );
 }
