@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
 import Input from "../Input";
 import SecondaryButton from "../buttons/SecondaryButton";
-
+import { toast } from "react-toastify";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,7 +22,10 @@ function Login() {
       await getLoggedIn();
       navigate("/");
     } catch (err) {
-      console.error(err);
+      toast.error(err.response.data.errorMessage, {
+        position: toast.POSITION.TOP_LEFT,
+      });
+      console.error(err.response.data.errorMessage);
     }
   }
 

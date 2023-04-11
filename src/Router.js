@@ -7,43 +7,46 @@ import NotFound from "./NotFound";
 import PublicRoute from "./PublicRoute";
 import RequireAuth from "./RequireAuth";
 import Profile from "./components/profile/Profile";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Router() {
   return (
     <div className="theme-rose">
-    <BrowserRouter>
-      <Navbar />
-      <main className="flex-1 w-full mt-2 text-gray-700  sm:mt-6 md:mt-8  max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Routes>
-          <Route
-            path="/login"
-            element={
-              <PublicRoute>
-                <Login />
-              </PublicRoute>
-            }
-          />
-          <Route
-            path="/register"
-            element={
-              <PublicRoute>
-                <Register />
-              </PublicRoute>
-            }
-          />
-          <Route
-            path="/"
-            element={
-              <RequireAuth>
-                <Profile />
-              </RequireAuth>
-            }
-          />
-          <Route path="/404" element={<NotFound />} />
-          <Route path="*" exact={true} element={<NotFound />} />
-        </Routes>
-      </main>
-    </BrowserRouter>
+      <ToastContainer />
+      <BrowserRouter>
+        <Navbar />
+        <main className="flex-1 w-full mt-2 text-gray-700  sm:mt-6 md:mt-8  max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Routes>
+            <Route
+              path="/login"
+              element={
+                <PublicRoute>
+                  <Login />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="/register"
+              element={
+                <PublicRoute>
+                  <Register />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="/"
+              element={
+                <RequireAuth>
+                  <Profile />
+                </RequireAuth>
+              }
+            />
+            <Route path="/404" element={<NotFound />} />
+            <Route path="*" exact={true} element={<NotFound />} />
+          </Routes>
+        </main>
+      </BrowserRouter>
     </div>
   );
 }

@@ -54,22 +54,22 @@ function Navbar() {
     //     </MDBCollapse>
     //   </MDBContainer>
     // </MDBNavbar>
-    <nav class="bg-skin-base border-b border-gray-100 z-10 border-t">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-20">
-          <div class="flex w-full">
-            <div class="shrink-0 flex items-center">
+    <nav className="bg-skin-base border-b border-gray-100 z-10 border-t">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between h-20">
+          <div className="flex w-full">
+            <div className="shrink-0 flex items-center">
               <a href="/">CipherSchools</a>
             </div>
-            <div class="hidden lg:flex sm:items-center sm:ml-6 flex-1 justify-end">
+            <div className="hidden lg:flex sm:items-center sm:ml-6 flex-1 justify-end">
               {loggedIn === false && (
                 <>
-                  <div class="flex items-center ml-6 ">
+                  <div className="flex items-center ml-6 ">
                     <Link to="/login">
                       <PrimaryButton>Login</PrimaryButton>
                     </Link>
                   </div>
-                  <div class="flex items-center ml-6 ">
+                  <div className="flex items-center ml-6 ">
                     <Link to="/register">
                       <SecondaryButton>Register</SecondaryButton>
                     </Link>
@@ -77,7 +77,7 @@ function Navbar() {
                 </>
               )}
             </div>
-            <div class="flex items-center ml-6 ">
+            <div className="flex items-center ml-6 ">
               {loggedIn === true && (
                 <>
                   {/* <Link to="/customer">Customers</Link> */}
