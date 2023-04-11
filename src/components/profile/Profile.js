@@ -1,24 +1,33 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import ProfileHeader from "./ProfileHeader";
 // import ContactForm from "./ContactForm";
 // import ContactList from "./ContactList";
 
 function Profile() {
-  const [contacts, setContacts] = useState([]);
+  const [user, setUser] = useState([]);
 
-  async function getContacts() {
-    const customersRes = await axios.get(
-      `${process.env.REACT_APP_BACKEND_URL}/contact/`
-    );
-    setContacts(customersRes.data);
-  }
-
-//   useEffect(() => {
-//     getContacts();
-//   }, []);
+  useEffect(() => {
+    async function getUser() {
+      try {
+        const userRes = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/currentUser/`
+        );
+        console.log(userRes);
+        setUser(userRes.data);
+      } catch (err) {
+        toast.error(err.response.data.errorMessage, {
+          position: toast.POSITION.TOP_LEFT,
+        });
+      }
+    }
+    getUser();
+  }, []);
 
   return (
     <div>
+      <ProfileHeader user={user} />{" "}
       {/* <ContactForm getContacts={getContacts} />
       <ContactList contacts={contacts} getContacts={getContacts} /> */}
     </div>

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
 import LogOutBtn from "../auth/LogOutBtn";
@@ -7,7 +7,7 @@ import PrimaryButton from "../buttons/PrimaryButton";
 
 function Navbar() {
   const { loggedIn } = useContext(AuthContext);
-  const [showNavRight, setShowNavRight] = useState(false);
+  // const [showNavRight, setShowNavRight] = useState(false);
 
   return (
     // <MDBNavbar expand="lg" className="shadow-sm" light bgColor="white">
