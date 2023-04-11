@@ -2,6 +2,10 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import ProfileHeader from "./ProfileHeader";
+import AboutMe from "./AboutMe";
+import Social from "./Social";
+import PasswordReset from "./PasswordReset";
+import Interest from "./Interest";
 // import ContactForm from "./ContactForm";
 // import ContactList from "./ContactList";
 
@@ -27,7 +31,11 @@ function Profile() {
 
   return (
     <div>
-      <ProfileHeader user={user} />{" "}
+      <ProfileHeader user={user} />
+      <AboutMe />
+      <Social />
+      <PasswordReset />
+      <Interest />
       {/* <ContactForm getContacts={getContacts} />
       <ContactList contacts={contacts} getContacts={getContacts} /> */}
     </div>
