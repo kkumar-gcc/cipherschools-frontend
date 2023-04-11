@@ -35,7 +35,7 @@ function Profile() {
       <AboutMe />
       <Social user={user} getUser={getUser} />
       <ProfessionalInfo user={user} getUser={getUser} />
-      <PasswordReset />
+      <PasswordReset getUser={getUser}/>
       <Interest />
       {/* <ContactForm getContacts={getContacts} />
       <ContactList contacts={contacts} getContacts={getContacts} /> */}

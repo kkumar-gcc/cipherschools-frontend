@@ -1,6 +1,6 @@
 function SecondaryButton(props) {
   return (
-    <span className={props.fullWidth ? "flex" : "inline-flex"}>
+    <span className={`${props.fullWidth ? "flex" : "inline-flex"} ${props.className}`}>
       <button
         type={props.type}
         onClick={props.onClick}
