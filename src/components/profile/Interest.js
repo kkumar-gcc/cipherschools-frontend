@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import SecondaryButton from "../buttons/SecondaryButton";
 import PrimaryButton from "../buttons/PrimaryButton";
 import { useEffect, useState } from "react";

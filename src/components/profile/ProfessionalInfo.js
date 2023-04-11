@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import SecondaryButton from "../buttons/SecondaryButton";
 import { useEffect, useState } from "react";
 import Dropdown from "../Dropdown";
@@ -57,7 +56,7 @@ function ProfessionalInfo(props) {
   useEffect(() => {
     setEducation(user.education ?? degrees[0].value);
     setCurrentJob(user.currentJob ?? jobs[0].value);
-  }, [props.user]);
+  }, [user]);
   return (
     <>
       <div className="mt-8 mb-4 mx-4">

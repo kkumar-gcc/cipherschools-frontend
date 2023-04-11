@@ -45,7 +45,7 @@ function ProfileHeader(props) {
     setFirstName(user.firstName ?? "");
     setLastName(user.lastName ?? "");
     setMobileNo(user.mobileNo ?? "");
-  }, [props.user]);
+  }, [user]);
   return (
     <>
       <header className="border border-gray-200 dark:border-gray-700 rounded-lg bg-skin-base dark:bg-gray-800">
@@ -53,7 +53,7 @@ function ProfileHeader(props) {
           <img
             className="absolute m-0 top-0 left-0 right-0 bottom-0 w-full h-full object-fit rounded-t-lg  bg-skin-base dark:bg-gray-800"
             src="https://www.cipherschools.com/static/media/ProfileCover.e525f2d51356332792cb.png"
-            alt={`Background image of ${user.firstName}`}
+            alt={`Background of ${user.firstName}`}
           />
         </div>
         <div className="my-4 flex flex-col md:flex-row px-6">

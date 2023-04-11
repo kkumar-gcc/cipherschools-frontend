@@ -7,8 +7,6 @@ import Social from "./Social";
 import PasswordReset from "./PasswordReset";
 import Interest from "./Interest";
 import ProfessionalInfo from "./ProfessionalInfo";
-// import ContactForm from "./ContactForm";
-// import ContactList from "./ContactList";
 
 function Profile() {
   const [user, setUser] = useState([]);

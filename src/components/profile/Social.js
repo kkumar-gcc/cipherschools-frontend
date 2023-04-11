@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import Input from "../Input";
 import SecondaryButton from "../buttons/SecondaryButton";
-import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
 
@@ -51,7 +50,7 @@ function Social(props) {
     setLinkedinUrl(user.linkedinUrl ?? '');
     setPortfolioUrl(user.portfolioUrl ?? '');
     setTwitterUrl(user.twitterUrl ?? '');
-  },[props.user])
+  },[user])
   return (
     <>
       <div className="mt-8 mb-4 mx-4">
