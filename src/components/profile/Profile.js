@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import ProfileHeader from "./ProfileHeader";
 import AboutMe from "./AboutMe";
@@ -12,22 +12,21 @@ import ProfessionalInfo from "./ProfessionalInfo";
 
 function Profile() {
   const [user, setUser] = useState([]);
-  async function getUser() {
+  const getUser = useCallback(async () => {
     try {
       const userRes = await axios.get(
         `${process.env.REACT_APP_BACKEND_URL}/currentUser/`
       );
-      console.log(userRes);
       setUser(userRes.data);
     } catch (err) {
       toast.error(err.response.data.errorMessage, {
         position: toast.POSITION.TOP_LEFT,
       });
     }
-  }
+  }, []);
   useEffect(() => {
     getUser();
-  }, []);
+  }, [getUser]);
 
   return (
     <div>

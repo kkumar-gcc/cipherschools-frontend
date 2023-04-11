@@ -19,7 +19,6 @@ function Social(props) {
   };
   async function updateSocial(e) {
     e.preventDefault();
-
     try {
       const data = {
         linkedinUrl: linkedinUrl,
