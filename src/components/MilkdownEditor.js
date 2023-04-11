@@ -35,12 +35,6 @@ import { trailing, trailingPlugin } from "@milkdown/plugin-trailing";
 import { listener, listenerCtx } from "@milkdown/plugin-listener";
 import { table, gfm, InsertTable } from "@milkdown/preset-gfm";
 
-const markdown = `# Milkdown React Commonmark
-
-> You're scared of a world where you're needed.
-
-This is a demo for using Milkdown with **React**.`;
-
 const hasMark = (state, type) => {
   if (!type) return false;
   const { from, $from, to, empty } = state.selection;
@@ -52,15 +46,13 @@ const hasMark = (state, type) => {
 
 const MilkdownEditor = (props) => {
   const { editor } = useEditor((root) =>
-    Editor.make() // <- i was thinking to use this but now i am not  using this for now
+    Editor.make()
       .use(nord)
       .config((ctx) => {
         ctx.set(rootCtx, root);
         ctx.set(defaultValueCtx, props.aboutMe);
         ctx.get(listenerCtx).markdownUpdated((ctx, markdown, prevMarkdown) => {
-          // @this.set(model, markdown);
           props.onMarkdownChange(markdown);
-          console.log(markdown);
         });
       })
       .use(gfm)

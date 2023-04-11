@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MilkdownEditor from "../MilkdownEditor";
 import SecondaryButton from "../buttons/SecondaryButton";
-import { Link } from "react-router-dom";
+import ReactMarkdown from "react-markdown";
+import axios from "axios";
+import { toast } from "react-toastify";
+import PrimaryButton from "../buttons/PrimaryButton";
 
 function AboutMe(props) {
   const [aboutMe, setAboutMe] = useState("");
@@ -9,6 +12,35 @@ function AboutMe(props) {
   function handleAboutMeChange(newAboutMe) {
     setAboutMe(newAboutMe);
   }
+  async function updateAboutMe(e) {
+    e.preventDefault();
+
+    try {
+      const data = {
+        aboutMe: aboutMe,
+      };
+      // await axios.post("http://localhost:5000/customer/", customerData);
+      var res = await axios.post(
+        `${process.env.REACT_APP_BACKEND_URL}/update-user`,
+        data
+      );
+      props.getUser();
+      console.log(res);
+      setShowPreview(true);
+      toast.success(res.data.message, {
+        position: toast.POSITION.TOP_LEFT,
+      });
+    } catch (err) {
+      console.error(err);
+      toast.error(err.response.data.errorMessage, {
+        position: toast.POSITION.TOP_LEFT,
+      });
+    }
+  }
+
+  useEffect(()=>{
+    setAboutMe(props.user.aboutMe ?? "");
+  },[props.user])
   return (
     <>
       <div className="mt-8 mb-4 mx-4">
@@ -30,15 +62,20 @@ function AboutMe(props) {
               </>
             ) : (
               <>
-                <SecondaryButton type="button">Save</SecondaryButton>
+                <PrimaryButton type="button" onClick={() => setShowPreview(true)}>
+                  Cancel
+                </PrimaryButton>
+                <SecondaryButton type="button" onClick={updateAboutMe} className="ml-3">
+                  Save
+                </SecondaryButton>
               </>
             )}
           </div>
         </div>
         {showPreview ? (
           <>
-            <div class="py-3 px-4 rounded-lg relative prose max-w-none prose-a:no-underline lg:max-w-full xl:max-w-none  dark:prose-invert prose-a:text-skin-600 dark:prose-a:text-skin-500">
-              {aboutMe}
+            <div className="py-3 px-4 rounded-lg relative prose max-w-none prose-a:no-underline lg:max-w-full xl:max-w-none  dark:prose-invert prose-a:text-skin-600 dark:prose-a:text-skin-500">
+              <ReactMarkdown>{aboutMe}</ReactMarkdown>
             </div>
           </>
         ) : (
@@ -49,9 +86,6 @@ function AboutMe(props) {
             />
           </>
         )}
-        <div class="py-3 px-4 rounded-lg relative prose max-w-none prose-a:no-underline lg:max-w-full xl:max-w-none  dark:prose-invert prose-a:text-skin-600 dark:prose-a:text-skin-500">
-          {aboutMe}
-        </div>
       </div>
     </>
   );

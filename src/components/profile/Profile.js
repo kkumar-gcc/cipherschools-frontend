@@ -32,7 +32,7 @@ function Profile() {
   return (
     <div>
       <ProfileHeader user={user} />
-      <AboutMe />
+      <AboutMe user={user} getUser={getUser} />
       <Social user={user} getUser={getUser} />
       <ProfessionalInfo user={user} getUser={getUser} />
       <PasswordReset getUser={getUser}/>
