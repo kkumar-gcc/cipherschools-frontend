@@ -59,7 +59,8 @@ function Navbar() {
         <div className="flex justify-between h-20">
           <div className="flex w-full">
             <div className="shrink-0 flex items-center">
-              <a href="/">CipherSchools</a>
+               <img className="w-12 h-12 mr-2" src="https://www.cipherschools.com/static/media/Cipherschools_icon@2x.3b571d743ffedc84d039.png" alt="cipherschools's logo" />
+              <a href="/" className="text-2xl font-extrabold">CipherSchools</a>
             </div>
             <div className="hidden lg:flex sm:items-center sm:ml-6 flex-1 justify-end">
               {loggedIn === false && (
