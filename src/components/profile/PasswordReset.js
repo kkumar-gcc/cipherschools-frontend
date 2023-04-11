@@ -28,12 +28,10 @@ function PasswordReset(props) {
       );
       props.getUser();
       setShowModal(false);
-      console.log(res);
       toast.success(res.data.message, {
         position: toast.POSITION.TOP_LEFT,
       });
     } catch (err) {
-      console.error(err);
       toast.error(err.response.data.errorMessage, {
         position: toast.POSITION.TOP_LEFT,
       });

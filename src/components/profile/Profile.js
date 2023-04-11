@@ -31,7 +31,7 @@ function Profile() {
 
   return (
     <div>
-      <ProfileHeader user={user} />
+      <ProfileHeader user={user} getUser={getUser}/>
       <AboutMe user={user} getUser={getUser} />
       <Social user={user} getUser={getUser} />
       <ProfessionalInfo user={user} getUser={getUser} />

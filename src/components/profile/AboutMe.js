@@ -25,13 +25,11 @@ function AboutMe(props) {
         data
       );
       props.getUser();
-      console.log(res);
       setShowPreview(true);
       toast.success(res.data.message, {
         position: toast.POSITION.TOP_LEFT,
       });
     } catch (err) {
-      console.error(err);
       toast.error(err.response.data.errorMessage, {
         position: toast.POSITION.TOP_LEFT,
       });
