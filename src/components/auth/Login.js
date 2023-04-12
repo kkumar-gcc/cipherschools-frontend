@@ -53,6 +53,12 @@ function Login() {
               required
               className="mb-3"
             />
+            <p className="text-base font-medium line-clamp-3  tracking-wide  block mb-2  text-gray-700">Demo Account</p>
+      
+            <ul>
+              <li>Email : 1@4.com</li>
+              <li>Password : 12345678</li>
+            </ul>
             <div className="mt-3">
               <SecondaryButton type="submit">Login</SecondaryButton>
             </div>
