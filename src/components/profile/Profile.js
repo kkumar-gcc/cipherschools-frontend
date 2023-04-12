@@ -7,6 +7,7 @@ import Social from "./Social";
 import PasswordReset from "./PasswordReset";
 import Interest from "./Interest";
 import ProfessionalInfo from "./ProfessionalInfo";
+import Activity from "./Activity";
 
 function Profile() {
   const [user, setUser] = useState([]);
@@ -31,6 +32,7 @@ function Profile() {
     <div>
       <ProfileHeader user={user} getUser={getUser}/>
       <AboutMe user={user} getUser={getUser} />
+      <Activity />
       <Social user={user} getUser={getUser} />
       <ProfessionalInfo user={user} getUser={getUser} />
       <PasswordReset getUser={getUser}/>

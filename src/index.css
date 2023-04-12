@@ -20,7 +20,58 @@
 .milkdown-menu {
     z-index: 100;
 }
-
+.react-calendar-heatmap {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 14px;
+  }
+  
+  .react-calendar-heatmap .react-calendar-heatmap__label {
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #9CA3AF;
+    margin-bottom: 10px;
+  }
+  
+  .react-calendar-heatmap .react-calendar-heatmap__row {
+    display: flex;
+  }
+  
+  .react-calendar-heatmap .react-calendar-heatmap__day {
+    width: 12px;
+    height: 12px;
+    margin-right: 1px;
+    margin-bottom: 1px;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+  }
+  
+  .react-calendar-heatmap .react-calendar-heatmap__day--blank {
+    background-color: #E5E7EB;
+  }
+  
+  .react-calendar-heatmap .react-calendar-heatmap__day--low {
+    background-color: #D1FAE5;
+  }
+  
+  .react-calendar-heatmap .react-calendar-heatmap__day--medium {
+    background-color: #6EE7B7;
+  }
+  
+  .react-calendar-heatmap .react-calendar-heatmap__day--high {
+    background-color: #10B981;
+  }
+  
+  .react-calendar-heatmap .react-calendar-heatmap__day--highest {
+    background-color: #047857;
+  }
+  
+  .react-calendar-heatmap .react-calendar-heatmap__tooltip {
+    position: absolute;
+    z-index: 10;
+    display: none;
+  }
 @media screen and (min-width: 980px) {
     .editor {
         padding: 10px 50px !important;
