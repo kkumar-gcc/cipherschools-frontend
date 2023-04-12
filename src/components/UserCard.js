@@ -30,7 +30,7 @@ function UserCard(props) {
               </div>
             </div>
             <div className="mt-3">
-              <div className="mb-3 md:hidden">
+              <div className="mb-3 md:hidden line-clamp-3">
                 <ReactMarkdown>{user.aboutMe}</ReactMarkdown>
               </div>
               <SecondaryButton type="button">
@@ -38,7 +38,7 @@ function UserCard(props) {
                 </SecondaryButton>
             </div>
           </header>
-          <div className="mt-3 hidden md:block">
+          <div className="mt-3 hidden md:block line-clamp-3">
             <ReactMarkdown>{user.aboutMe}</ReactMarkdown>
           </div>
         </div>

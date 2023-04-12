@@ -6,7 +6,7 @@ import UserCard from "../UserCard";
 function Follower() {
   const [followers, setFollowers] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize] = useState(1);
+  const [pageSize] = useState(9);
   const [totalFollowers, setTotalFollowers] = useState(0);
 
   useEffect(() => {
@@ -16,7 +16,6 @@ function Follower() {
           `${process.env.REACT_APP_BACKEND_URL}/user/followers`,
           { params: { page: currentPage, limit: pageSize } }
         );
-        console.log(response);
         setFollowers(response.data.items);
         setTotalFollowers(response.data.totalItems);
       } catch (error) {

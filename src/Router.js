@@ -36,14 +36,6 @@ function Router() {
               }
             />
             <Route
-              path="/followers"
-              element={
-                <RequireAuth>
-                  <Follower />
-                </RequireAuth>
-              }
-            />
-            <Route
               path="/"
               element={
                 <RequireAuth>

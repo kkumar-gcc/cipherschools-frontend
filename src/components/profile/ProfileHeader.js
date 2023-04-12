@@ -6,9 +6,11 @@ import PrimaryButton from "../buttons/PrimaryButton";
 import Input from "../Input";
 import { toast } from "react-toastify";
 import axios from "axios";
+import Follower from "./Follower";
 
 function ProfileHeader(props) {
   const [showModal, setShowModal] = useState(false);
+  const [showFollowerModal, setShowFollowerModal] = useState(false);
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -22,7 +24,7 @@ function ProfileHeader(props) {
         firstName: firstName,
         lastName: lastName,
         mobileNo: mobileNo,
-        email: email
+        email: email,
       };
       // await axios.post("http://localhost:5000/customer/", customerData);
       var res = await axios.post(
@@ -95,12 +97,13 @@ function ProfileHeader(props) {
               </div>
             </div>
             <div className="mt-3 ">
-              <Link to="/followers">
-                <SecondaryButton type="button">
-                  <span className="mr-1">{user.followers?.length}</span>
-                  Followers
-                </SecondaryButton>
-              </Link>
+              <SecondaryButton
+                type="button"
+                onClick={() => setShowFollowerModal(true)}
+              >
+                <span className="mr-1">{user.followers?.length}</span>
+                Followers
+              </SecondaryButton>
             </div>
           </div>
         </div>
@@ -176,6 +179,44 @@ function ProfileHeader(props) {
             </div>
           </div>
           <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+        </>
+      ) : null}
+
+      {showFollowerModal ? (
+        <>
+          <div className="fixed inset-0 overflow-y-auto z-[100] ">
+            <div className="relative flex min-h-screen items-center justify-center">
+              {/*content*/}
+              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full h-full min-h-screen bg-white outline-none focus:outline-none">
+                {/*header*/}
+                {/* <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
+                  <h3 className="text-3xl font-semibold">Modal Title</h3>
+                  <button
+                    className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+                    onClick={() => setShowModal(false)}
+                  >
+                    <span className="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
+                      ×
+                    </span>
+                  </button>
+                </div> */}
+                {/*body*/}
+                <div className="relative p-6 flex-auto">
+                  <Follower />
+                </div>
+                {/*footer*/}
+                <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
+                  <PrimaryButton
+                    type="button"
+                    onClick={() => setShowFollowerModal(false)}
+                  >
+                    Close
+                  </PrimaryButton>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style={{ display:"none" }} className="fixed inset-0 bg-black bg-opacity-10"></div>
         </>
       ) : null}
     </>

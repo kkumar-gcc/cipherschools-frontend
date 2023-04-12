@@ -27,6 +27,7 @@ function Profile() {
   }, [getUser]);
 
   return (
+    <>
     <div>
       <ProfileHeader user={user} getUser={getUser}/>
       <AboutMe user={user} getUser={getUser} />
@@ -35,6 +36,7 @@ function Profile() {
       <PasswordReset getUser={getUser}/>
       <Interest user={user} getUser={getUser}/>
     </div>
+    </>
   );
 }
 
