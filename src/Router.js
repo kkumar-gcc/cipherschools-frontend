@@ -36,14 +36,6 @@ function Router() {
               }
             />
             <Route
-              path="/"
-              element={
-                <RequireAuth>
-                  <Profile />
-                </RequireAuth>
-              }
-            />
-             <Route
               path="/followers"
               element={
                 <RequireAuth>
@@ -51,6 +43,15 @@ function Router() {
                 </RequireAuth>
               }
             />
+            <Route
+              path="/"
+              element={
+                <RequireAuth>
+                  <Profile />
+                </RequireAuth>
+              }
+            />
+             
             <Route path="/404" element={<NotFound />} />
             <Route path="*" exact={true} element={<NotFound />} />
           </Routes>
