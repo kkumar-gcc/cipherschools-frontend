@@ -9,7 +9,6 @@ import RequireAuth from "./RequireAuth";
 import Profile from "./components/profile/Profile";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Follower from "./components/profile/Follower";
 
 function Router() {
   return (
